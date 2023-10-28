@@ -19,7 +19,8 @@ sudo apt update && sudo apt upgrade -y
 # sudo apt install docker docker-compose
 
 sudo apt install gawk ca-certificates certbot syslog-ng syslog-ng-core \
-	syslog-ng-scl fail2ban ripgrep bash-completion logrotate locate logwatch
+	syslog-ng-scl fail2ban ripgrep bash-completion logrotate locate logwatch \
+	apt-listchanges
 
 cp -f "$source/.profile" "$HOME"
 cp -f "$source/.bashrc" "$HOME"
@@ -34,6 +35,15 @@ cat "$source/sshd_config" > /etc/ssh/sshd_config
 
 cat "$source/50unattended-upgrades" > /etc/apt/apt.conf.d/50unattended-upgrades
 cat "$source/20auto-upgrades" > /etc/apt/apt.conf.d/20auto-upgrades
+
+cat > /etc/apt/listchanges.conf.d/listchanges.conf << EOF
+[apt]
+frontend=text
+email_format=text
+email_address=root
+confirm=0
+which=both
+EOF
 
 echo "kernel.printk = 3    4    1    7" >> /etc/sysctl.conf
 
