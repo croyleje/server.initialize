@@ -19,6 +19,7 @@ cp "$source/.vimrc" "$HOME"
 
 # Configure sudoers file.
 # Defaults     !tty_tickets
+# Defaults	   editor=/usr/bin/vim
 
 # useradd -m -s /bin/bash <username> -G sudo
 # usermod -aG sudo <username>
