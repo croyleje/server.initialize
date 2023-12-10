@@ -30,7 +30,7 @@ cp "$source/.vimrc" "$HOME"
 . ~/.profile
 . ~/.bashrc
 
-rm /etc/ssh/sshd_config.d/*
+rm -f /etc/ssh/sshd_config.d/*
 cat "$source/sshd_config" > /etc/ssh/sshd_config
 
 cat "$source/50unattended-upgrades" > /etc/apt/apt.conf.d/50unattended-upgrades
