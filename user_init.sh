@@ -9,6 +9,11 @@ source=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # '{if(($3 >= min)&&($3 <= max)) print $1}' | \
 # sort -u
 
+if [ "$EUID" -eq 0 ]
+  then echo "ERROR: Please run as user from $HOME directory."
+  exit 1
+fi
+
 cp -f "$source/.profile" "$HOME"
 cp -f "$source/.bashrc" "$HOME"
 cp -f "$source/.bash_logout" "$HOME"
