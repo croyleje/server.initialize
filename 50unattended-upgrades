@@ -36,10 +36,10 @@ Unattended-Upgrade::Origins-Pattern {
         // Note that this will silently match a different release after
         // migration to the specified archive (e.g. testing becomes the
         // new stable).
-//      "o=Debian,a=stable";
+        "o=Debian,a=stable";
 //      "o=Debian,a=stable-updates";
-//      "o=Debian,a=proposed-updates";
-//      "o=Debian Backports,a=${distro_codename}-backports,l=Debian Backports";
+        "o=Debian,a=proposed-updates";
+        "o=Debian Backports,a=${distro_codename}-backports,l=Debian Backports";
 };
 
 // Python regular expressions, matching packages to exclude from upgrading
